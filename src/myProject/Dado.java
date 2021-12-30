@@ -20,36 +20,24 @@ public class Dado {
      * @return meeple, cohete, superheroe, corazon, dragon or 42
      */
     public String getCara() {
-        switch (numberCara){
-            case 1: cara="meeple";
-                    break;
-            case 2: cara="cohete";
-                break;
-            case 3: cara="superheroe";
-                break;
-            case 4: cara="corazon";
-                break;
-            case 5: cara="dragon";
-                break;
-            case 6: cara="42";
-                break;
+        switch (numberCara) {
+            case 1 -> cara = "meeple";
+            case 2 -> cara = "cohete";
+            case 3 -> cara = "superheroe";
+            case 4 -> cara = "corazon";
+            case 5 -> cara = "dragon";
+            case 6 -> cara = "42";
         }
         return cara;
     }
     public String getCaraContraria(){
-        switch (numberCara){
-            case 1: caraContraria="cohete";
-                break;
-            case 2: caraContraria="meeple";
-                break;
-            case 3: caraContraria="dragon";
-                break;
-            case 4: caraContraria="42";
-                break;
-            case 5: caraContraria="superheroe";
-                break;
-            case 6: caraContraria="corazon";
-                break;
+        switch (numberCara) {
+            case 1 -> caraContraria = "cohete";
+            case 2 -> caraContraria = "meeple";
+            case 3 -> caraContraria = "dragon";
+            case 4 -> caraContraria = "42";
+            case 5 -> caraContraria = "superheroe";
+            case 6 -> caraContraria = "corazon";
         }
         return caraContraria;
     }

@@ -27,13 +27,13 @@ public class GUIGridBagLayout extends JFrame {
             + "\nEste juego lo jugará un único jugador y ganará si logra sumar 30 puntos en 5 rondas consecutivas de juego.";
 
     private Header headerProject;
-    private JLabel dado1, dado2, dado3, dado4, dado5, dado6, dado7;
+    private JLabel dado1, dado2, dado3, dado4, dado5, dado6, dado7,dado8, dado9, dado10;
     private JButton activar, cambiar, ayuda;
-    private JPanel panelDados;
+    private JPanel panelRondas, panelActivos, panelInactivos, panelUtilizados, panelPuntuacion, panelSeleccion, panelInteraccion;
     private ImageIcon imageDados;
     private JTextArea numeroDado, tarjetaPuntuacion;
     private Escucha escucha;
-    private ModelGame modelGame;
+    //private ModelGame modelGame;
 
     /**
      * Constructor of GUI class
@@ -43,8 +43,6 @@ public class GUIGridBagLayout extends JFrame {
 
         //Default JFrame configuration
         this.setTitle("Geek Out Masters");
-        this.setUndecorated(true);
-        this.setBackground(new Color(255, 255, 255, 0));
         this.pack();
         this.setResizable(true);
         this.setVisible(true);
@@ -62,15 +60,15 @@ public class GUIGridBagLayout extends JFrame {
         GridBagConstraints constrains = new GridBagConstraints();
 
         //Create Listener Object and Control Object
-        escucha = new Escucha();
-        modelGame = new ModelGame;
+        //escucha = new Escucha();
+        //modelGame = new ModelGame;
         //Set up JComponents
         headerProject = new Header("Mesa Juego Geek Out Masters", Color.BLACK);
         constrains.gridx = 0;
         constrains.gridy = 0;
         constrains.gridwidth = 2;
         constrains.fill = GridBagConstraints.HORIZONTAL;
-        this.add(headerProyect,constrains);
+        this.add(headerProject,constrains);
 
         ayuda = new JButton(" ? ");
         ayuda.addActionListener(escucha);
@@ -81,28 +79,98 @@ public class GUIGridBagLayout extends JFrame {
         constrains.anchor = GridBagConstraints.LINE_START;
         this.add(ayuda, constrains);
 
-        panelDados = new JPanel();
-        panelDados.setPreferredSize(new Dimension(300, 180));
-        panelDados.setBorder(BorderFactory.createTitledBorder(" Tus Dados "));
-        panelDados.add(dado1);
-        panelDados.add(dado2);
-
+        panelRondas = new JPanel();
+        panelRondas.setPreferredSize(new Dimension(200, 26));
+        panelRondas.setBackground(Color.BLACK);
         constrains.gridx = 0;
-        constrains.gridy = 2;
+        constrains.gridy = 1;
         constrains.gridwidth = 1;
-        constrains.fill = GridBagConstraints.BOTH;
-        constrains.anchor = GridBagConstraints.CENTER;
-
-        add(panelDados,constrains);
-
-        activar = new JButton("lanzar");
-        activar.addActionListener(escucha);
-        constrains.gridx = 0;
-        constrains.gridy = 3;
-        constrains.gridwidth = 2;
         constrains.fill = GridBagConstraints.NONE;
         constrains.anchor = GridBagConstraints.CENTER;
-        add(activar,constrains);
+        this.add(panelRondas, constrains);
+
+        panelActivos = new JPanel();
+        panelActivos.setPreferredSize(new Dimension(560, 400));
+        panelActivos.setBorder(BorderFactory.createTitledBorder(" Tus Dados "));
+        constrains.gridx = 0;
+        constrains.gridy = 2;
+        constrains.gridheight = 4;
+        constrains.fill = GridBagConstraints.BOTH;
+        constrains.anchor = GridBagConstraints.CENTER;
+        add(panelActivos,constrains);
+
+        panelInactivos = new JPanel();
+        panelInactivos.setPreferredSize(new Dimension(330, 170));
+        panelInactivos.setBorder(BorderFactory.createTitledBorder(" Dados Inactivos "));
+        constrains.gridx = 1;
+        constrains.gridy = 1;
+        constrains.gridheight = 2;
+        constrains.fill = GridBagConstraints.NONE;
+        constrains.anchor = GridBagConstraints.CENTER;
+        add(panelInactivos,constrains);
+
+        panelUtilizados = new JPanel();
+        panelUtilizados.setPreferredSize(new Dimension(330, 170));
+        panelUtilizados.setBorder(BorderFactory.createTitledBorder(" Dados Utilizados "));
+        constrains.gridx = 1;
+        constrains.gridy = 3;
+        constrains.gridheight = 2;
+        constrains.fill = GridBagConstraints.NONE;
+        constrains.anchor = GridBagConstraints.CENTER;
+        add(panelUtilizados,constrains);
+
+
+        panelPuntuacion = new JPanel();
+        panelPuntuacion.setPreferredSize(new Dimension(330, 170));
+        panelPuntuacion.setBorder(BorderFactory.createTitledBorder(" Puntuacion "));
+        constrains.gridx = 1;
+        constrains.gridy = 5;
+        constrains.gridheight = 2;
+        constrains.fill = GridBagConstraints.BOTH;
+        constrains.anchor = GridBagConstraints.CENTER;
+        add(panelPuntuacion,constrains);
+
+        panelInteraccion = new JPanel();
+        panelInteraccion.setPreferredSize(new Dimension(200, 80));
+
+        cambiar = new JButton("cambiar ");
+        cambiar.addActionListener(escucha);
+        constrains.gridx = 0;
+        constrains.gridy = 0;
+        constrains.gridheight = 1;
+        constrains.gridwidth = 1;
+        constrains.fill = GridBagConstraints.NONE;
+        constrains.anchor = GridBagConstraints.CENTER;
+        panelInteraccion.add(cambiar, constrains);
+
+        activar = new JButton("activar");
+        activar.addActionListener(escucha);
+        constrains.gridx = 0;
+        constrains.gridy = 0;
+        constrains.gridheight = 1;
+        constrains.gridwidth = 1;
+        constrains.fill = GridBagConstraints.NONE;
+        constrains.anchor = GridBagConstraints.CENTER;
+        panelInteraccion.add(activar, constrains);
+
+        panelSeleccion = new JPanel();
+        panelSeleccion.setPreferredSize(new Dimension(180, 60));
+        panelSeleccion.setBackground(Color.BLUE);
+        constrains.gridx =1;
+        constrains.gridy = 0;
+        constrains.gridheight = 2;
+        constrains.gridwidth = 1;
+        constrains.fill = GridBagConstraints.NONE;
+        constrains.anchor = GridBagConstraints.CENTER;
+        panelInteraccion.add(panelSeleccion,constrains);
+
+
+constrains.
+        constrains.gridx = 0;
+        constrains.gridy = 6;
+        constrains.fill = GridBagConstraints.BOTH;
+        constrains.anchor = GridBagConstraints.CENTER;
+        add(panelInteraccion,constrains);
     }
 
     /**
