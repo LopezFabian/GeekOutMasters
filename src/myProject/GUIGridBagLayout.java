@@ -58,6 +58,7 @@ public class GUIGridBagLayout extends JFrame {
         //Set up JFrame Container's Layout
         this.getContentPane().setLayout(new GridBagLayout());
         GridBagConstraints constrains = new GridBagConstraints();
+        GridBagConstraints GBCInterno = new GridBagConstraints();
 
         //Create Listener Object and Control Object
         //escucha = new Escucha();
@@ -130,47 +131,51 @@ public class GUIGridBagLayout extends JFrame {
         constrains.anchor = GridBagConstraints.CENTER;
         add(panelPuntuacion,constrains);
 
-        panelInteraccion = new JPanel();
-        panelInteraccion.setPreferredSize(new Dimension(200, 80));
-
-        cambiar = new JButton("cambiar ");
-        cambiar.addActionListener(escucha);
+        panelInteraccion = new JPanel(new GridBagLayout());
+        panelInteraccion.setPreferredSize(new Dimension(300, 200));
         constrains.gridx = 0;
-        constrains.gridy = 0;
+        constrains.gridy = 6;
         constrains.gridheight = 1;
-        constrains.gridwidth = 1;
         constrains.fill = GridBagConstraints.NONE;
         constrains.anchor = GridBagConstraints.CENTER;
-        panelInteraccion.add(cambiar, constrains);
+        add(panelInteraccion,constrains);
+
+
+
+        panelSeleccion = new JPanel();
+        panelSeleccion.setPreferredSize(new Dimension(200, 100));
+        panelSeleccion.setBackground(Color.BLUE);
+        GBCInterno.gridx =0;
+        GBCInterno.gridy = 0;
+        GBCInterno.gridheight = 2;
+        GBCInterno.gridwidth = 1;
+        GBCInterno.fill = GridBagConstraints.NONE;
+        GBCInterno.anchor = GridBagConstraints.CENTER;
+        panelInteraccion.add(panelSeleccion,GBCInterno);
+
+        cambiar = new JButton("cambiar");
+        cambiar.addActionListener(escucha);
+        GBCInterno.gridx = 1;
+        GBCInterno.gridy = 0;
+        GBCInterno.gridheight = 1;
+        GBCInterno.gridwidth = 1;
+        GBCInterno.weighty = 50.0;
+        GBCInterno.fill = GridBagConstraints.NONE;
+        GBCInterno.anchor = GridBagConstraints.LAST_LINE_END;
+        panelInteraccion.add(cambiar, GBCInterno);
 
         activar = new JButton("activar");
         activar.addActionListener(escucha);
-        constrains.gridx = 0;
-        constrains.gridy = 0;
-        constrains.gridheight = 1;
-        constrains.gridwidth = 1;
-        constrains.fill = GridBagConstraints.NONE;
-        constrains.anchor = GridBagConstraints.CENTER;
-        panelInteraccion.add(activar, constrains);
+        GBCInterno.gridx = 1;
+        GBCInterno.gridy = 1;
+        GBCInterno.ipadx = 8;
+        GBCInterno.gridheight = 1;
+        GBCInterno.gridwidth = 1;
+        //GBCInterno.ipadx = 8;
+        GBCInterno.fill = GridBagConstraints.NONE;
+        GBCInterno.anchor = GridBagConstraints.FIRST_LINE_END;
+        panelInteraccion.add(activar, GBCInterno);
 
-        panelSeleccion = new JPanel();
-        panelSeleccion.setPreferredSize(new Dimension(180, 60));
-        panelSeleccion.setBackground(Color.BLUE);
-        constrains.gridx =1;
-        constrains.gridy = 0;
-        constrains.gridheight = 2;
-        constrains.gridwidth = 1;
-        constrains.fill = GridBagConstraints.NONE;
-        constrains.anchor = GridBagConstraints.CENTER;
-        panelInteraccion.add(panelSeleccion,constrains);
-
-
-constrains.
-        constrains.gridx = 0;
-        constrains.gridy = 6;
-        constrains.fill = GridBagConstraints.BOTH;
-        constrains.anchor = GridBagConstraints.CENTER;
-        add(panelInteraccion,constrains);
     }
 
     /**
