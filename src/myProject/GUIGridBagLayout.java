@@ -40,7 +40,7 @@ public class GUIGridBagLayout extends JFrame {
      */
     public GUIGridBagLayout(){
         initGUI();
-
+        setIconImage(new ImageIcon(getClass().getResource("/resources/logo.png")).getImage());
         //Default JFrame configuration
         this.setTitle("Geek Out Masters");
         this.pack();
